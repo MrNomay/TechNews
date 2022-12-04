@@ -36,7 +36,7 @@ class NewsBox extends StatelessWidget {
                   CachedNetworkImage(
                     imageUrl: imageurl,
                     imageBuilder: (context, imageProvider) => Container(
-                      height: h / 8,
+                      height: h / 10,
                       width: w / 4,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
@@ -44,8 +44,11 @@ class NewsBox extends StatelessWidget {
                               image: imageProvider, fit: BoxFit.cover)),
                     ),
                     placeholder: (context, url) => Center(
-                      child: CircularProgressIndicator(
-                        color: Appcolors.primary,
+                      child: Padding(
+                        padding: const EdgeInsets.all(30),
+                        child: CircularProgressIndicator(
+                          color: Appcolors.primary,
+                        ),
                       ),
                     ),
                     errorWidget: (context, url, error) =>
