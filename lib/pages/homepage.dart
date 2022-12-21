@@ -43,17 +43,18 @@ class _HomeState extends State<Home> {
                       return ListView.builder(
                           itemCount: snapshot.data!.length,
                           itemBuilder: ((context, index) {
+                            final ind = snapshot.data![index];
                             return NewsBox(
-                                imageurl:
-                                    snapshot.data![index]['urlToImage'] != null
-                                        ? snapshot.data![index]['urlToImage']
-                                        : constImage.imageurl,
-                                title: snapshot.data![index]['title'],
-                                time: snapshot.data![index]['publishedAt'],
-                                description: snapshot.data![index]
-                                        ['description']
-                                    .toString(),
-                                url: snapshot.data![index]['url']);
+                              imageurl:
+                                  snapshot.data![index]['urlToImage'] != null
+                                      ? snapshot.data![index]['urlToImage']
+                                      : constImage.imageurl,
+                              title: snapshot.data![index]['title'],
+                              time: snapshot.data![index]['publishedAt'],
+                              description: snapshot.data![index]['description']
+                                  .toString(),
+                              url: snapshot.data![index]['url'],
+                            );
                           }));
                     } else if (snapshot.hasError) {
                       return Center(
